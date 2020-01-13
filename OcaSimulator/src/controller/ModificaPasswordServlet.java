@@ -47,8 +47,9 @@ public class ModificaPasswordServlet extends HttpServlet {
 			request.setAttribute("messaggio", "la Password è stata cambiata effettua di nuovo il login");
 			request.getRequestDispatcher("/").forward(request, response);
 		} else {
-			request.getRequestDispatcher("/WEB-INF/jsp/modificapassword.jsp").forward(request, response);
 			request.setAttribute("errore", "password non valida. La password deve contenere almeno 8 caratteri, di cui almeno uno speciale, uno maiuscolo e un numero");
+			request.getRequestDispatcher("/WEB-INF/jsp/modificapassword.jsp").forward(request, response);
+			
 		}
 		
 		

@@ -27,8 +27,8 @@
 <input type="submit" value="invia">
 
 </form>
-<%if(request.getParameter("errore")!=null){%>
-<p><%request.getParameter("errore"); %></p>
+<%if(request.getAttribute("errore")!=null){%>
+<p><%=request.getAttribute("errore") %></p>
 <%} %>
 	</div>
 	</div>

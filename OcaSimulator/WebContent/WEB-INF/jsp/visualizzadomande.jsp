@@ -20,15 +20,15 @@
 <th>nome</th>
 <th>cognome</th>
 </tr>
-  <%for(int i=0; i < listaDomande.size();i++){%>
+  <%for(Domande d:listaDomande){%>
             <tr>
-                <td><%=listaDomande.get(i).getTesto() %></td>
+                <td><%=d.getTesto() %></td>
                 
-                <td><%=listaDomande.get(i).getUtente().getNome()%></td>
-                <td><%=listaDomande.get(i).getUtente().getCognome()%></td>
+                <td><%=d.getUtente().getNome()%></td>
+                <td><%=d.getUtente().getCognome()%></td>
              	<td>
-             	<form method="POST" action="VisualizzaDomande">
-					<input type="hidden" value=<%=listaDomande.get(i).getId()%> name="idSet">
+             	<form method="POST" action="visualizzadomande">
+					<input type="hidden" value=<%=d.getId()%> name="idSet">
 					<input type="submit" value="elimina">
 				</form>
 				</td>	

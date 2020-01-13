@@ -34,7 +34,7 @@
 		<input type="checkbox" name="ulterioreRisposta" value="si" checked>
 		aggiungi ulteriore risposta<br>
 		<input type="submit" value="aggiungi">
-		<!-- -------//-------------------CAMBIATO--------------------------- -->
+
 	</form>
 </body>
 </html>

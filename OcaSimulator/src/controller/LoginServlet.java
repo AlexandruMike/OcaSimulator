@@ -40,7 +40,10 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		if(email.equals("admin@elis.org") && password.equals("1234567")) {
+		System.out.println("l email admin è  "+getServletContext().getInitParameter("AmministratoreEmail"));
+		if(email.equals(getServletContext().getInitParameter("AmministratoreEmail")) &&
+				password.equals(getServletContext().getInitParameter("AmministratorePassword"))) {
+			System.out.println("nell if");
 			Utente u=new Utente();
 			u.setEmail(email);
 			u.setPassword(password);

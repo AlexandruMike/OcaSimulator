@@ -50,19 +50,17 @@ public class VisualizzaDomandeServlet extends HttpServlet {
 		try {
 			idDomanda = Integer.parseInt(idDomandaString);
 		} catch (Exception e) {
-			System.out.println("problema nel tryCatch di visualizza domanda servlet");
+			System.out.println("problema nel tryCatch di VisualizzaDomandeServlet");
 		}
-		/*** elimino la domanda all interno del DB... Verificare la buona riuscita sul terminale ***/
+		/*** elimino la domanda all interno del DB ***/
 		Domande daEliminare= new Domande(idDomanda);
 		boolean esitoElimininazione = DAOFactory.getDAOFactory().getDomandeDAO().eliminaDomanda(daEliminare);
 		if (esitoElimininazione) {
-			response.sendRedirect("VisualizzaDomande");
 			System.out.println("domanda eliminata con successo");
-			
 		}else {
-			response.sendRedirect("VisualizzaDomande");
 			System.out.println("problema con l'eliminazione della domanda");
 		}
+		doGet(request, response);
 	}
 
 }

@@ -12,7 +12,7 @@
 <input type="submit" value = "visualizza richieste">
 </form>
 
-<form action ="formcreazionedomande" method = "GET">
+<form action ="creazionedomande" method = "GET">
 <input type="submit" value = "inserire domanda">
 </form>
 

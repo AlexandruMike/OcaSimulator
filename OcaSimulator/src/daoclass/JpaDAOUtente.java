@@ -32,6 +32,7 @@ public class JpaDAOUtente implements UtenteDAO {
 		Utente u = null;
 		
 		try {
+			if (email!=null && password!=null) {
 			EntityManager manager = JpaDAOFactory.getEntityManager();
 			String query = "SELECT u FROM Utente u WHERE u.email=:email AND u.password=:password";
 			Query q = manager.createQuery(query);
@@ -42,11 +43,14 @@ public class JpaDAOUtente implements UtenteDAO {
 			u = (Utente) q.getSingleResult();
 			transaction.commit();
 			return u;
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			return null;
+			
 		}
+		
+		return u;
 		
 	}
 

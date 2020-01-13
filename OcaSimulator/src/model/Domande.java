@@ -85,7 +85,7 @@ public class Domande implements Serializable,Comparable<Domande> {
 	@Override
 	public int compareTo(Domande o) {
 		int confronto=utente.compareTo(o.utente);
-		if(confronto==0)id=o.id;
+		if(confronto==0)confronto=id-o.id;
 		return confronto;
 	}
 

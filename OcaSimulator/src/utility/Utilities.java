@@ -74,11 +74,21 @@ public class Utilities {
 	public static String generaPassword() {				                                                      
 		String password="";
 		String[] caratteri= {"DG=1","G2#w","D^f3","4=fD","5*Df","6S@e","7fK","8m2","Ft+7","f4d","S$","Z","Rft","שיE","F#e4","fH@1","L3^R","KuY","As4","Dm7","xc5","kK3","P0o","rR2","5Rs"};
-		for (int i = 0; i <=2; i++) {
-			int idx = new Random().nextInt(caratteri.length);
-			String value = (caratteri[idx]);
-			password+=value;
-		}
+		char idx = '0';
+		for (int i = 0; i <=7; i++) {
+			switch(new Random().nextInt(3)) {
+			case 0:
+				idx = (char)(new Random().nextInt(26)+'a');
+				break;
+			case 1: 
+				idx=(char)(new Random().nextInt(26)+'A');
+				break;
+			case 2:
+				idx=(char)(new Random().nextInt(10)+'0');
+				break;
+			}
+			password+=idx;
+			}
 	
 		return password;
 	}

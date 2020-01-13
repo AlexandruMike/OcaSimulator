@@ -26,6 +26,7 @@ Prendo la lista di domande, dopodiché preparo il form su cui ciclo ogni domanda 
  	List<Domande> listaDomande = (List<Domande>)session.getAttribute("listaDomande");
 	int  risposteDate=(int)session.getAttribute("risposteDate");
 	if(listaDomande!=null&&listaDomande.size()>risposteDate){
+		char i='a';
 		Domande d=listaDomande.get(risposteDate);
 		%>
 		<p><%=d.getTesto() %></p>
@@ -35,7 +36,7 @@ Prendo la lista di domande, dopodiché preparo il form su cui ciclo ogni domanda 
 			<div class="col-12 mt-4">
 				<form action="svolgetest" method="POST">
 			<%for(Opzioni o:d.getOpzionis()){%>
-				<input type="checkbox" name=<%="opzione"+o.getId()%> value="1"> <%=o.getTesto() %><br> 
+				<input type="checkbox" name=<%="opzione"+o.getId()%> value="1"><%=i++ %> - <%=o.getTesto() %><br> 
 			<% }%>
 			<input type="submit" value="Conferma" class="mt-3">
 		</form>

@@ -10,44 +10,54 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
-    <param-name>Amministratore email</param-name>
+    <param-name>AmministratoreEmail</param-name>
     <param-value>admin@admin.elis</param-value>
   </context-param>
   <context-param>
-    <param-name>Amministratore password</param-name>
+    <param-name>AmministratorePassword</param-name>
     <param-value>123456789</param-value>
   </context-param>
   <filter>
+  <!--Filtro Amministratore -->
+   <filter-name>adminFil</filter-name>
+    <filter-class>filter.AmministratoreFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>adminFil</filter-name>
+    <url-pattern>/creadipendente</url-pattern>
+    <url-pattern>/visualizzadomande</url-pattern>
+    <url-pattern>/visualizzadipendente</url-pattern>
+  </filter-mapping>
+  <filter>
+  <!-- filtro studente -->
     <filter-name>studFil</filter-name>
     <filter-class>filter.StudenteFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>studFil</filter-name>
-    <url-pattern>/opzionistudente</url-pattern>
+    <url-pattern>/studente</url-pattern>
     <url-pattern>/svolgetest</url-pattern>
   </filter-mapping>
   <filter>
+  <!-- Filtro Dipendente -->
     <filter-name>dipFil</filter-name>
     <filter-class>filter.DipendenteFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>dipFil</filter-name>
-    <url-pattern>/formcreazionedomande</url-pattern>
+    <url-pattern>/creazionedomande</url-pattern>
     <url-pattern>/inserimentorisposte</url-pattern>
     <url-pattern>/visualizzarichiesta</url-pattern>
     <url-pattern>/dipendente</url-pattern>
   </filter-mapping>
-  
   <filter>
-  	<filter-name>utenteFilter</filter-name>
-  	<filter-class>filter.UtenteFilter</filter-class>
+  <!-- Filtro Utente (creato per poter dare accesso agli utenti alle servlet comuni) -->
+    <filter-name>utenteFilter</filter-name>
+    <filter-class>filter.UtenteFilter</filter-class>
   </filter>
-  
   <filter-mapping>
-  	<filter-name>utenteFilter</filter-name>
-  	 <url-pattern>/modificapassword</url-pattern>
-  	 <url-pattern>/visualizzastorico</url-pattern>
-    
-   
+    <filter-name>utenteFilter</filter-name>
+    <url-pattern>/modificapassword</url-pattern>
+    <url-pattern>/visualizzastorico</url-pattern>
   </filter-mapping>
 </web-app>
